@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Absensi Siswa Menggunbakan RFID</h1>
+      <div class="absensi-form">
+        <form action="absensi.php" id="absenForm" method="post">
+          <label for="">Scan Kartu RFID</label>
+          <input
+            type="number"
+            id="rfid"
+            name="rfid"
+            placeholder="masukan kode rfid"
+            required
+            autofocus
+          />
+          <button type="submit">Absen</button>
+        </form>
+        <div class="response" id="response"></div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
