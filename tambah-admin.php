@@ -13,12 +13,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = password_hash(mysqli_real_escape_string($conn, $_POST['password']), PASSWORD_DEFAULT);
-    $level = 'admin'; // New admin is being added, so the level is 'admin'
+    $level = $_POST['level']; // Get level from form selection
 
     // Insert into the database
     $query = "INSERT INTO admin (user, password, level) VALUES ('$username', '$password', '$level')";
     if ($conn->query($query) === TRUE) {
         $message = "Admin baru berhasil ditambahkan!";
+        header("Location: admin_list.php"); // Redirect to the list of admins after successful update
+        exit();
     } else {
         $message = "Terjadi kesalahan: " . $conn->error;
     }
@@ -48,9 +50,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" name="username" required>
         </div>
+
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="level" class="form-label">Level</label>
+            <select class="form-control" id="level" name="level" required>
+                <option value="admin">Admin</option>
+                <option value="operator">Operator</option>
+            </select>
         </div>
 
         <button type="submit" class="btn btn-primary">Tambah Admin</button>
