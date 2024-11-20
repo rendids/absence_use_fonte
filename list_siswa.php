@@ -124,7 +124,7 @@ $result = $conn->query($sql);
                     echo "<td>" . $row["absen"] . "</td>";
                     echo "<td>" . $row["kelas"] . "</td>";
                     echo "<td>" . $row["email"] . "</td>";
-                    echo "<td>" . $row["telepon"] . "</td>";
+                    echo "<td>" . $row["tlpn"] . "</td>";
                     echo "<td>" . $row["alamat"] . "</td>";
                     echo "<td>" . $row["rfid"] . "</td>";
                     echo "<td>" . $row["tanggal_daftar"] . "</td>";
